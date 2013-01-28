@@ -1,14 +1,16 @@
+/* Enter your code here. Read input from STDIN. Print output to STDOUT */
 #include<stdio.h>
+//#include<conio.h>
 void main(){
-  struct node{
+	struct node{
 	unsigned int data;
 	unsigned int data1;
 	unsigned int data2;
 	struct node *link;
 	};
-	struct node *start, *ar,*ar1,*pptr,*kl,*pptr1,*start1;
+	struct node *start, *ar,*ar1,*pptr,*kl,*pptr1,*start1,*p1,*p2;
 unsigned int i,j,k,l,n,diff,x,*arr,p,q;
-start = NULL,start1=NULL;
+start = NULL;
 ar = NULL,ar1=NULL,pptr1=NULL;
 pptr = NULL;
 //printf("Enter the total no of elements");
@@ -24,7 +26,6 @@ scanf("%u",&arr[i]);
 		    if(arr[i]<arr[j]){
 			for(k=j;k<n;k++){
 			    if(arr[j]<arr[k]){
-					//diff=(arr[i]*100)+(arr[j]*10)+arr[k];
 					pptr = ar;
 					ar = (struct node *) malloc(sizeof(struct node));
 					ar->data=arr[i];
@@ -42,7 +43,7 @@ scanf("%u",&arr[i]);
 	       }
 	 }
 
-	ar = start;
+	/*ar = start;
 	while(ar!=NULL)
 	{
 	printf("\n%u%u%u",ar->data,ar->data1,ar->data2);
@@ -52,73 +53,37 @@ scanf("%u",&arr[i]);
 	printf("\nthe no of node is %u",x);
 
 	 printf("\n\n\n");
-
-pptr =start;
-	while(pptr!=NULL)
-	{
-	kl=pptr;
-	ar = pptr->link;
-		while(ar!=NULL)
-		{
-		if(kl->data>ar->data)
-			{
-			diff=kl->data;
-			kl->data=ar->data;
-			ar->data=diff;
-			}
-		ar=ar->link;
-		}
-	pptr= pptr->link;
-	//a=a+1;
-	}
-
-/*printf("\nthe sorted linked list is");
-printf("\nelements");
-ar=start;
-	while(ar!=NULL)
-	{
-	printf("\n%u",ar->data);
-	ar=ar->link;
-	}
 */
-ar=start;
-while(ar!=NULL) {
-kl=ar->link;
-if(kl==NULL){
-pptr1 = ar1;
-ar1 =  malloc(sizeof(struct node));
-ar1->data=ar->data;
-ar1->link = NULL;
-if(start1==NULL)
-start1 = ar1;
-else
-pptr1->link = ar1;
-break;
-}
-if(ar->data == kl->data){
-ar=ar->link;
-}
-else{
-pptr1 = ar1;
-ar1 =  malloc(sizeof(struct node));
-ar1->data=ar->data;
-ar1->link = NULL;
-if(start1==NULL)
-start1 = ar1;
-else
-pptr1->link = ar1;
-ar=ar->link;
-
-}
+p1=start;
+pptr=NULL;
+while(p1!=NULL){
+    p2=p1->link;
+	while(p2!=NULL){
+		if((p1->data==p2->data)&&(p1->data1==p2->data1)&&(p1->data2==p2->data2)) {
+			if(p1==start){			
+				start=start->link;
+				pptr=p1;
+				goto label;
+			}
+			else{
+			pptr->link=p1->link;
+			goto label;
+			}	
+		}
+		pptr=p1;
+		p2=p2->link;
+	}
+	label:
+	p1=p1->link;
 }
 
-printf("\nelements");
-ar1=start1;
+//printf("\nelements");
+p1=start;
 x=0;
-	while(ar1!=NULL)
+	while(p1!=NULL)
 	{
-	printf("\n%u",ar1->data);
-	ar1=ar1->link;
+	//printf("\n%u%u%u",p1->data,p1->data1,p1->data2);
+	p1=p1->link;
 	x=x+1;
 	}
 
