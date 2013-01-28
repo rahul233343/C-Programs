@@ -1,4 +1,3 @@
-/* Enter your code here. Read input from STDIN. Print output to STDOUT */
 #include<stdio.h>
 //#include<conio.h>
 void main(){
@@ -8,11 +7,10 @@ void main(){
 	unsigned int data2;
 	struct node *link;
 	};
-	struct node *start, *ar,*ar1,*pptr,*kl,*pptr1,*start1,*p1,*p2;
-unsigned int i,j,k,l,n,diff,x,*arr,p,q;
+	struct node *start, *ar,*pptr,*p1,*p2;
+unsigned int i,j,k,l,n,x,*arr;
 start = NULL;
-ar = NULL,ar1=NULL,pptr1=NULL;
-pptr = NULL;
+ar = NULL,pptr = NULL;
 //printf("Enter the total no of elements");
 scanf("%u",&n);
 arr= (unsigned int*)malloc(n*sizeof(unsigned int));
@@ -57,7 +55,8 @@ scanf("%u",&arr[i]);
 p1=start;
 pptr=NULL;
 while(p1!=NULL){
-    p2=p1->link;
+    
+p2=p1->link;
 	while(p2!=NULL){
 		if((p1->data==p2->data)&&(p1->data1==p2->data1)&&(p1->data2==p2->data2)) {
 			if(p1==start){			
@@ -67,14 +66,19 @@ while(p1!=NULL){
 			}
 			else{
 			pptr->link=p1->link;
+			//pptr=p1;
 			goto label;
-			}	
-		}
-		pptr=p1;
+			}
+		}		
+			
+		
 		p2=p2->link;
 	}
-	label:
+	
+	pptr=p1;
+	label:	
 	p1=p1->link;
+	
 }
 
 //printf("\nelements");
