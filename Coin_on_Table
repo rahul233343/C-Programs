@@ -1,0 +1,50 @@
+/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+#include<stdio.h>
+#include<conio.h>
+void main(){
+int i,j,k,r,c,l;
+char **arr, coin;
+//printf("Enter the matrix row and column and time");
+scanf("%d%d%d",&r,&c,&k);
+arr=(char **)malloc(r*sizeof(char*));
+//printf("Enter the element in the form U L D R and only one * for permanent mark");
+for(i=0;i<r;i++){
+    arr[i]=(char *)malloc(c* sizeof(char));
+    for(j=0;j<c;j++){
+    fflush(stdin);
+    scanf("%c",&arr[i][j]);
+    }
+}
+/*for(i=0;i<r;i++){
+    printf("\n");
+     for(j=0;j<c;j++){
+    printf("%c",arr[i][j]);
+    }
+}*/
+
+i=j=l=0;
+while(l<=k){
+coin=arr[i][j];
+if(coin=='U')
+i=i-1;
+if(coin=='D')
+i=i+1;
+if(coin=='L')
+j=j-1;
+if(coin=='R')
+j=j+1;
+if(coin=='*'){
+if(l==k){
+printf("0");
+getch();
+exit(0);
+}
+
+}
+l=l+1;
+}
+printf("1");
+getch();
+exit(0);
+
+}
