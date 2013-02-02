@@ -1,6 +1,6 @@
 #include<iostream>
 #include<cmath>
-//#include<conio.h>
+#include<conio.h>
 using namespace std;
 class pointri{
 public:
@@ -35,6 +35,7 @@ int isInside(int x1, int y1, int x2, int y2, int x3, int y3, int x, int y)
 };//end of class
 
 int main(){
+pointri ob;
 int n,q;
 //cout<<"Enter the no. of points and the no of Triangle points";
 cin>>n>>q;
@@ -56,10 +57,6 @@ triangle[i][2]=xx;
 triangle[i][3]=yy;
 triangle[i][4]=xx;
 triangle[i][5]=yy+dd;
-}//end of for
-pointri ob;
-
-for(int i=0;i<q;i++){
 int cnt=0;
 for(int j=0;j<n;j++){
  int t = ob.isInside(triangle[i][0],triangle[i][1],triangle[i][2],triangle[i][3],triangle[i][4],triangle[i][5],point[j][0], point[j][1]);
@@ -67,7 +64,9 @@ for(int j=0;j<n;j++){
      
 }
  cout<<cnt<<endl;
-}
-//getch();
+
+}//end of for
+
+getch();
 return 0;
 }//end of main
