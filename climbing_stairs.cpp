@@ -2,31 +2,34 @@
 
 using namespace std;
 
-class monk{
-public:
-	unsigned int  magic(unsigned int steps) {
-				if (steps == 1) {
-				    return 1;
-				}
-				else if (steps == 2) {
-				    return 2;
-				} 
-				else {
-				    return magic(steps-1) + magic(steps-2);
-				}
-			}//end of magic
-
-};//end of class
 int main(){
-	unsigned int test,steps,guess;
-	monk ob;	
+	unsigned int ways,test,steps,guess;
+	//monk ob;	
 	//cout<<"Test";
 	cin.clear();	
 	cin>>test;
 		for(unsigned int i=0;i<test;i++){
 			//cout<<"Steps"<<endl<<"Guess";
 			cin>>steps>>guess;
-		unsigned int ways = ob.magic(steps); 
+
+				if (steps == 1) {
+				    ways= 1;
+				}
+				else if (steps == 2) {
+				    ways= 2;
+				} 
+				else {
+				    //return magic(steps-1) + magic(steps-2);
+					int ss,s=1,f=2;				      
+					for(int j=0;j<steps-2;j++){
+						ss=s+f;
+						s=f;
+						f=ss;
+				      }//end of for
+				ways=ss;
+				}
+			
+
 		unsigned int cnt=0,r;
 	 	while(ways > 0)   
 	 	{   
