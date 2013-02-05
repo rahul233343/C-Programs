@@ -4,29 +4,33 @@ using namespace std;
 
 int main() {
 	
-	double test,steps,guess,cnt =0; 
+	unsigned int test,steps,guess,cnt =0; 
 	//cout<<"Test";
 	//cin.clear();	
 	cin>>test;
 
 
-			double choice = sqrt(5);
+			float choice = sqrt(5);
 			for(unsigned int i=0;i<test;i++){
 			//cout<<"Steps"<<endl<<"Guess";
 			cin>>steps>>guess;
 			
-			double r = pow( ((1+choice)/2),steps); 	
-			
-			cnt = log(r/choice);
-			//cout<<cnt;
-			cnt++;
-			//cout<<endl<<cnt;		 
+			long double r = pow(((1+choice)/2),steps); 	
+			//cout<<r;
+			cnt = log10 (r/choice);
+			//float cnt = log(pow(((1+sqrt(5))/2),steps)/sqrt(5));			
+			cout<<cnt<<endl;
+			int d=int (cnt);			
+			cout<<d<<endl;			
+			d++;
+					
+			cout<<d<<endl;		 
 	 	 
 
 
 //Checking the Count Against Guess given by villagers
 
-	if (cnt == guess)
+	if (d == guess)
 	cout<<"CORRECT"<<endl;
 	else
 	cout<<"INCORRECT"<<endl;
