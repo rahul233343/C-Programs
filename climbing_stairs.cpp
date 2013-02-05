@@ -1,43 +1,31 @@
 #include<iostream>
-
+#include<cmath>
 using namespace std;
 
-int main(){
-	unsigned int ways,test,steps,guess;
-	//monk ob;	
+int main() {
+	
+	double test,steps,guess,cnt =0; 
 	//cout<<"Test";
-	cin.clear();	
+	//cin.clear();	
 	cin>>test;
-		for(unsigned int i=0;i<test;i++){
+
+
+			double choice = sqrt(5);
+			for(unsigned int i=0;i<test;i++){
 			//cout<<"Steps"<<endl<<"Guess";
 			cin>>steps>>guess;
-
-				if (steps == 1) {
-				    ways= 1;
-				}
-				else if (steps == 2) {
-				    ways= 2;
-				} 
-				else {
-				    //return magic(steps-1) + magic(steps-2);
-					int ss,s=1,f=2;				      
-					for(int j=0;j<steps-2;j++){
-						ss=s+f;
-						s=f;
-						f=ss;
-				      }//end of for
-				ways=ss;
-				}
 			
+			double r = pow( ((1+choice)/2),steps); 	
+			
+			cnt = log(r/choice);
+			//cout<<cnt;
+			cnt++;
+			//cout<<endl<<cnt;		 
+	 	 
 
-		unsigned int cnt=0,r;
-	 	while(ways > 0)   
-	 	{   
-			  r = ways % 2 ;   
-			  if (r==1)
-			  cnt++;
-			  ways = ways / 2 ;    
-		 }//end of while   
+
+//Checking the Count Against Guess given by villagers
+
 	if (cnt == guess)
 	cout<<"CORRECT"<<endl;
 	else
