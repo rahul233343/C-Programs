@@ -10,12 +10,12 @@ int main() {
 	cin>>test;
 
 
-			float choice = sqrt(5);
+			long double choice = sqrt(5);
 			for(unsigned int i=0;i<test;i++){
 			//cout<<"Steps"<<endl<<"Guess";
 			cin>>steps>>guess;
 			
-			long double r = pow(((1+choice)/2),steps); 	
+			long double r = pow(((1+choice)/2),(long double)steps); 	
 			//cout<<r;
 			cnt = log10 (r/choice);
 			//float cnt = log(pow(((1+sqrt(5))/2),steps)/sqrt(5));			
